@@ -14,6 +14,7 @@ export default class AuthContainer extends Component {
             <span style={styles.orText}>OR</span>
             <hr style={styles.hr} />
         </div>
+        <Link style={styles.link} to="/feed">Sign In! No info required (BETA)</Link>
         <Link style={styles.link} to="/signup">Sign up with email or phone number</Link>
         <BottomLoginBar />
       </div>
