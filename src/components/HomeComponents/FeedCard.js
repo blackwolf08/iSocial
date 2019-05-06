@@ -29,13 +29,14 @@ function FeedCard(props) {
           alt={props.name}
           className={classes.media}
           height="140"
-          image={props.image}
+          image="http://lorempixel.com/600/400"
           title={props.title}
+          style={{backgroundPosition:'center center', backgroundSize:'cover', backgroundRepeat:'no-repeat'}}
         />
         <CardContent>
         <div style={{display: 'flex', alignItems:'center'}}>
             <Avatar src="https://picsum.photos/50" />
-            <h5 style={{margin: '5px'}}>Sunny</h5>
+            <h5 style={{margin: '5px', color: 'black'}}>{props.name}</h5>
         </div>
         </CardContent>
       </CardActionArea>

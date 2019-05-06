@@ -54,7 +54,7 @@ export default class Feed extends Component {
     let peopleCards = this.state.photos.map((card)=>{
         return (
             <div>
-                <FeedCard title={card.title} image={card.url}/>
+                <FeedCard title={card.title} image={card.url} name={card.title.split(' ')[0]} />
             </div>
         )
     })
@@ -77,10 +77,10 @@ export default class Feed extends Component {
 const styles = {
     avatars: {
         display: 'flex',
-        overflowY: 'scroll',
+        overflowX: 'scroll',
         backgroundColor:'#f2f2f2',
         height: '80px',
-        overflowX: 'Hidden'
+        overflowY: 'Hidden'
     },
     root: {
         width: '100%',
