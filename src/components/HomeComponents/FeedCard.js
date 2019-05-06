@@ -11,8 +11,9 @@ import { Avatar } from '@material-ui/core';
 
 const styles = {
   card: {
-    maxWidth: '100%',
-    marginTop: '20px'
+    Width: '100%',
+    marginTop: '20px',
+    height: '400px'
   },
   media: {
     objectFit: 'cover',
@@ -31,16 +32,16 @@ function FeedCard(props) {
           height="140"
           image="http://lorempixel.com/600/400"
           title={props.title}
-          style={{backgroundPosition:'center center', backgroundSize:'cover', backgroundRepeat:'no-repeat'}}
+          style={{backgroundPosition:'center center', backgroundSize:'cover', backgroundRepeat:'no-repeat', height:'300px'}}
         />
-        <CardContent>
+        <CardContent  style={{height:'50px'}}>
         <div style={{display: 'flex', alignItems:'center'}}>
             <Avatar src="https://picsum.photos/50" />
             <h5 style={{margin: '5px', color: 'black'}}>{props.name}</h5>
         </div>
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      <CardActions style={{height:'50px'}}>
         <Button size="small" color="primary">
             <i class="far fa-heart"></i>
         </Button>
