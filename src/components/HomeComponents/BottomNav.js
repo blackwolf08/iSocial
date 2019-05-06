@@ -22,6 +22,7 @@ class BottomNav extends React.Component {
 
   handleChange = (event, value) => {
     this.setState({ value });
+console.log(value);
   };
 
   render() {
