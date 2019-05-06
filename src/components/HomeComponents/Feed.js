@@ -42,7 +42,6 @@ export default class Feed extends Component {
         <div style={styles.avatars}>
             {people}
         </div>
-        <span></span>
         <BottomNav />
       </div>
     )
