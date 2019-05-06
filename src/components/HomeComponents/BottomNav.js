@@ -10,7 +10,7 @@ const styles = {
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
-    position: 'absolute',
+    position: 'sticky',
     bottom: 0
   },
 };

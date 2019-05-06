@@ -17,7 +17,7 @@ function ImageAvatars(props) {
   const { name } = props;
   return (
     <div style={styles.root}>
-      <Avatar alt={ name } src="https://lorempixel.com/50/50" className={classes.Avatar} />
+      <Avatar alt={ name } src="https://picsum.photos/100" className={classes.Avatar} />
       <p>{ name }</p>
     </div>
   );
