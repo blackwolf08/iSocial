@@ -46,7 +46,7 @@ export default class Feed extends Component {
     let people = this.state.users.map((name)=>{
         return (
         <div key={name.id} style={{margin: '5px'}}>
-            <Avatar name={name.name} />
+            <Avatar name={name.username} />
         </div>
         );
     })
@@ -79,7 +79,8 @@ const styles = {
         display: 'flex',
         overflowY: 'scroll',
         backgroundColor:'#f2f2f2',
-        height: '80px'
+        height: '80px',
+        overflowX: 'Hidden'
     },
     root: {
         width: '100%',
