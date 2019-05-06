@@ -1,9 +1,10 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import SignUp from './components/SignUp'
-import AuthLogin from './components/AuthLogin';
-import AuthContainer from './components/AuthContainer';
+import SignUp from './components/AuthComponents/SignUp'
+import AuthLogin from './components/AuthComponents/AuthLogin';
+import AuthContainer from './components/AuthComponents/AuthContainer';
+import Feed from './components/HomeComponents/Feed'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route exact path="/" component={AuthContainer} />
         <Route path="/login" component={AuthLogin} />
         <Route path="/signup" component={SignUp} />
+        <Route path="/feed" component={Feed} />
       </div>
     </Router>
   );
@@ -23,7 +25,8 @@ const styles = {
     width: '100%',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    maxWidth: '500px',
   }
 }
 
