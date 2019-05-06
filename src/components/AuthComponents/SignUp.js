@@ -10,6 +10,7 @@ export default class SignUp extends Component {
         <TabSignUp />
         <Link to="/" className="btn btn-primary" style={{width: '80%'}}>Next</Link>
         <Link style={styles.button} className="btn btn-primary" to="/"><i class="fab fa-facebook-square"></i> Sign up with Facebook</Link>
+        <span></span>
       </div>
     )
   }
