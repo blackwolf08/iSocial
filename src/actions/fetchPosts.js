@@ -1,8 +1,10 @@
 import { FETCH_PHOTOS, FETCH_POSTS, FETCH_USERS } from './types'
+import axios from "axios";
+
 
 export const fetchPhotos = () => dispatch => {
-    fetch('https://jsonplaceholder.typicode.com/photos?_limit=10')
-    .then(response => response.json())
+    axios.get('https://jsonplaceholder.typicode.com/photos?_limit=10')
+    .then(response => response.data)
     .then(json => dispatch({
         type: FETCH_PHOTOS,
         payload: json
@@ -11,8 +13,8 @@ export const fetchPhotos = () => dispatch => {
 }
 
 export const fetchPosts = () => dispatch => {
-    fetch('https://jsonplaceholder.typicode.com/posts?_limit=10')
-    .then(response => response.json())
+    axios.get('https://jsonplaceholder.typicode.com/posts?_limit=10')
+    .then(response => response.data)
     .then(json => dispatch({
         type: FETCH_POSTS,
         payload: json
@@ -22,8 +24,8 @@ export const fetchPosts = () => dispatch => {
 
 
 export const fetchUsers = () => dispatch => {
-    fetch('https://jsonplaceholder.typicode.com/users')
-    .then(response => response.json())
+    axios.get('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.data)
     .then(json => dispatch({
         type: FETCH_USERS,
         payload: json
