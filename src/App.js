@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch, withRouter } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 import Main from './components/AuthComponents/Main'
 import store from './store'
 import { Provider } from 'react-redux'

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import Avatar from './Avatar'
 import TopFeedNavBar from './TopFeedNavBar'
 import BottomNav from './BottomNav'
 import FeedCard from './FeedCard'
 import { connect } from 'react-redux'
 import { fetchPhotos, fetchPosts, fetchUsers } from '../../actions/fetchPosts'
+import ImageAvatars from './ImageAvatars'
 
 class Feed extends Component {
 
@@ -19,7 +19,7 @@ class Feed extends Component {
     let people = this.props.users.map((name)=>{
         return (
         <div key={name.id} style={{margin: '5px'}}>
-            <Avatar name={name.username} />
+            <ImageAvatars name={name.username} />
         </div>
         );
     })
