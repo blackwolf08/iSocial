@@ -15,6 +15,7 @@
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0"
   },
+  "homepage": "https://isocial.netlify.com",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
