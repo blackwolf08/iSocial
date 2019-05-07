@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router } from 'react-router-dom'
-import Main from './components/authComponents/Main'
+import Myapp from './components/authComponents/Myapp'
 import store from './store'
 import { Provider } from 'react-redux'
 import jwtDecode from 'jwt-decode'
@@ -21,7 +21,7 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <Main />
+        <Myapp />
       </Router>  
     </Provider>
   );
