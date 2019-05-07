@@ -5,17 +5,21 @@ import SignUp from './components/AuthComponents/SignUp'
 import AuthLogin from './components/AuthComponents/AuthLogin';
 import AuthContainer from './components/AuthComponents/AuthContainer';
 import Feed from './components/HomeComponents/Feed'
+import store from './store'
+import { Provider } from 'react-redux'
 
 function App() {
   return (
-    <Router>
-      <div style={styles.root}>
-        <Route exact path="/" component={AuthContainer} />
-        <Route path="/login" component={AuthLogin} />
-        <Route path="/signup" component={SignUp} />
-        <Route path="/feed" component={Feed} />
-      </div>
-    </Router>
+    <Provider store={store}>
+        <Router>
+          <div style={styles.root}>
+            <Route exact path="/" component={AuthContainer} />
+            <Route path="/login" component={AuthLogin} />
+            <Route path="/signup" component={SignUp} />
+            <Route path="/feed" component={Feed} />
+          </div>
+        </Router>
+    </Provider>
   );
 }
 

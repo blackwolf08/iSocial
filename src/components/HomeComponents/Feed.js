@@ -3,47 +3,21 @@ import Avatar from './Avatar'
 import TopFeedNavBar from './TopFeedNavBar'
 import BottomNav from './BottomNav'
 import FeedCard from './FeedCard'
+import { connect } from 'react-redux'
+import { fetchPhotos, fetchPosts, fetchUsers } from '../../actions/fetchPosts'
 
-export default class Feed extends Component {
+class Feed extends Component {
 
-    state ={
-        photos : [],
-        posts : [],
-        users : []
-    }
-
-    componentDidMount()
-    {
-        fetch('https://jsonplaceholder.typicode.com/photos?_limit=10')
-        .then(response => response.json())
-        .then(json => {
-            this.setState({
-                photos: json
-            })
-        });
-
-        fetch('https://jsonplaceholder.typicode.com/posts?_limit=10')
-        .then(response => response.json())
-        .then(json => {
-            this.setState({
-                posts: json
-            })
-        });
-
-        fetch('https://jsonplaceholder.typicode.com/users')
-        .then(response => response.json())
-        .then(json => {
-            this.setState({
-                users: json
-            })
-        });
-        
-
+    componentWillMount(){
+        this.props.fetchPhotos();
+        this.props.fetchPosts();
+        this.props.fetchUsers();
+        console.log(this.props.users)
     }
 
   render() {
 
-    let people = this.state.users.map((name)=>{
+    let people = this.props.users.map((name)=>{
         return (
         <div key={name.id} style={{margin: '5px'}}>
             <Avatar name={name.username} />
@@ -51,7 +25,7 @@ export default class Feed extends Component {
         );
     })
 
-    let peopleCards = this.state.photos.map((card)=>{
+    let peopleCards = this.props.photos.map((card)=>{
         return (
             <div>
                 <FeedCard title={card.title} image={card.url} name={card.title.split(' ')[0]} />
@@ -87,3 +61,11 @@ const styles = {
         height: '100%'
     }
 }
+
+const mapStateToProps = state =>({
+    posts: state.fetch.posts,
+    photos: state.fetch.photos,
+    users: state.fetch.users
+})
+
+export default connect(mapStateToProps, { fetchPhotos, fetchPosts, fetchUsers })(Feed);
