@@ -12,7 +12,6 @@ class Feed extends Component {
         this.props.fetchPhotos();
         this.props.fetchPosts();
         this.props.fetchUsers();
-        console.log(this.props.users)
     }
 
   render() {
@@ -27,7 +26,7 @@ class Feed extends Component {
 
     let peopleCards = this.props.photos.map((card)=>{
         return (
-            <div>
+            <div key={card.id}>
                 <FeedCard title={card.title} image={card.url} name={card.title.split(' ')[0]} />
             </div>
         )

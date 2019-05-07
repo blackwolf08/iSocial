@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -20,41 +19,86 @@ const styles = {
   },
 };
 
-function FeedCard(props) {
-  const { classes } = props;
-  return (
-    <Card className={classes.card}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          alt={props.name}
-          className={classes.media}
-          height="140"
-          image="http://lorempixel.com/600/400"
-          title={props.title}
-          style={{backgroundPosition:'center center', backgroundSize:'cover', backgroundRepeat:'no-repeat', height:'300px'}}
-        />
-        <CardContent  style={{height:'50px'}}>
-        <div style={{display: 'flex', alignItems:'center'}}>
-            <Avatar src="https://picsum.photos/50" />
-            <h5 style={{margin: '5px', color: 'black'}}>{props.name}</h5>
-        </div>
-        </CardContent>
-      </CardActionArea>
-      <CardActions style={{height:'50px'}}>
-        <Button size="small" color="primary">
-            <i class="far fa-heart"></i>
-        </Button>
-        <Button size="small" color="primary">
-            <i class="far fa-comment"></i>
-        </Button>
-      </CardActions>
-    </Card>
-  );
+
+class FeedCard extends Component {
+
+    state = {
+      isClicked: false,
+      likeClass: "far fa-heart",
+      color: 'black'
+    }
+
+
+    liked = ()=>{
+      if(!this.state.isClicked)
+      {
+        this.setState({
+          isClicked: !this.state.isClicked,
+          likeClass: "fas fa-heart",
+          color: 'red'
+        })
+      }
+      else{
+        this.setState({
+          isClicked: false,
+          likeClass: "far fa-heart",
+          color: 'black'
+        })
+      }
+    }
+
+    likedDbl = ()=>{
+      if(!this.state.isClicked)
+      {
+        this.setState({
+          isClicked: !this.state.isClicked,
+          likeClass: "fas fa-heart",
+          color: 'red'
+        })
+      }
+      else{
+        this.setState({
+          isClicked: false,
+          likeClass: "far fa-heart",
+          color: 'black'
+        })
+      }
+    }
+  render() {
+    const { classes }  = this.props;
+    return (
+        <Card className={classes.card}>
+        <CardActionArea  onDoubleClick={this.likedDbl}>
+          <CardMedia
+            component="img"
+            alt={this.props.name}
+            className={classes.media}
+            height="140"
+            image="http://lorempixel.com/600/400"
+            title={this.props.title}
+            style={{backgroundPosition:'center center', backgroundSize:'cover', backgroundRepeat:'no-repeat', height:'300px'}}
+          />
+          <CardContent  style={{height:'50px'}}>
+          <div style={{display: 'flex', alignItems:'center'}}>
+              <Avatar src="https://picsum.photos/50" />
+              <h5 style={{margin: '5px', color: 'black'}}>{this.props.name}</h5>
+          </div>
+          </CardContent>
+        </CardActionArea>
+        <CardActions style={{height:'50px'}}>
+          <Button size="small" color="primary" onClick={this.liked}>
+              <i style={{fontSize: '200%', color: this.state.color}} className={this.state.likeClass}></i>
+          </Button>
+          <Button size="small" color="primary">
+              <i style={{fontSize: '200%', color: 'black'}} className="far fa-comment"></i>
+          </Button>
+        </CardActions>
+      </Card>
+    )
+  }
 }
 
-FeedCard.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+
+
 
 export default withStyles(styles)(FeedCard);

@@ -57,3 +57,11 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: #f2f2f2; 
 }
+
+i {
+  font-size: 150%;
+}
+
+button {
+  outline: none !important;
+}

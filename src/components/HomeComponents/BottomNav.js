@@ -1,8 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-
 
 const styles = {
   root: {
@@ -11,7 +8,9 @@ const styles = {
     justifyContent: 'space-around',
     alignItems: 'center',
     position: 'sticky',
-    bottom: 0
+    bottom: 0,
+    backgroundColor: '#fff',
+    height: '50px'
   },
 };
 
@@ -22,7 +21,6 @@ class BottomNav extends React.Component {
 
   handleChange = (event, value) => {
     this.setState({ value });
-console.log(value);
   };
 
   render() {
@@ -30,19 +28,16 @@ console.log(value);
     const { value } = this.state;
 
     return (
-      <BottomNavigation value={value} onChange={this.handleChange} className={classes.root}>
+      <div value={value} onChange={this.handleChange} className={classes.root}>
         <i style={{color: 'black'}} className="fas fa-home"></i>
         <i className="fas fa-search"></i>
         <i className="far fa-plus-square"></i>
         <i className="far fa-heart"></i>
         <i className="far fa-user"></i>
-      </BottomNavigation>
+      </div>
     );
   }
 }
 
-BottomNav.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 
 export default withStyles(styles)(BottomNav);
