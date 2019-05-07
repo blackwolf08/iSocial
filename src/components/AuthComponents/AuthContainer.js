@@ -24,12 +24,13 @@ export default class AuthContainer extends Component {
 
 const styles = {
     root: {
-        height: '80%',
-        width: '80%',
+        height: '100%',
+        width: '100%',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column',
+        padding: '20px'
         },
     logo: {
         height: '100px',

@@ -93,7 +93,7 @@ class FeedCard extends Component {
           />
           {this.state.show &&(
             <div className="animated heartBeat" style={{position: 'absolute', top:'90px',left:'120px', zIndex:'99999', fontSize:'400%', color:'#eee'}}>
-              <i className="animated heartBeat" style={{fontSize: '200%', color: '#eee'}} className="fas fa-heart"></i>
+              <i style={{fontSize: '200%', color: '#eee'}} className="animated heartBeat fas fa-heart"></i>
             </div>
           )}
         </CardActionArea>
@@ -111,7 +111,7 @@ class FeedCard extends Component {
                 <Avatar src="https://picsum.photos/50" />
                 <h5 style={{margin: '5px', color: 'black'}}>{this.props.name}</h5>
               </div>
-              <a style={{color:'#a9a9a9'}} href="#">View all comments</a>
+              <a style={{color:'#a9a9a9'}} href="/feed">View all comments</a>
               <div style={{display:'flex', alignItems:'baseline'}}>
                 <h6 style={{color:'black'}}>Sunny</h6><span style={{marginLeft:'6px'}}>Beautiful...</span>
               </div>

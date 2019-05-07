@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router } from 'react-router-dom'
-import Main from './components/AuthComponents/Main'
+import Main from './components/authComponents/Main'
 import store from './store'
 import { Provider } from 'react-redux'
 import jwtDecode from 'jwt-decode'

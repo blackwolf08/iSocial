@@ -57,8 +57,9 @@ export default class AuthLogin extends Component {
 
 const styles = {
     root: {
-        height: '80%',
-        width: '80%',
+        height: '100%',
+        width: '100%',
+        padding:'20px',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

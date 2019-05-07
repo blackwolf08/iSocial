@@ -1,6 +1,5 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
 
 
 const styles = {
@@ -30,11 +29,11 @@ class BottomLoginBar extends React.Component {
     const { classes } = this.props;
 
     return (
-      <BottomNavigation
+      <div
         className={classes.root}
       >
         <p className={classes.text}>Have an account?<a className={classes.link} href="/">Log in</a></p>
-      </BottomNavigation>
+      </div>
     );
   }
 }
