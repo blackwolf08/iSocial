@@ -12,7 +12,7 @@ const styles = {
   card: {
     Width: '100%',
     marginTop: '20px',
-    height: '400px'
+    boxShadow: 'none'
   },
   media: {
     objectFit: 'cover',
@@ -96,14 +96,8 @@ class FeedCard extends Component {
               <i className="animated heartBeat" style={{fontSize: '200%', color: '#eee'}} className="fas fa-heart"></i>
             </div>
           )}
-          <CardContent  style={{height:'50px'}}>
-          <div style={{display: 'flex', alignItems:'center'}}>
-              <Avatar src="https://picsum.photos/50" />
-              <h5 style={{margin: '5px', color: 'black'}}>{this.props.name}</h5>
-          </div>
-          </CardContent>
         </CardActionArea>
-        <CardActions style={{height:'50px'}}>
+        <CardActions>
           <Button size="small" color="primary" onClick={this.liked}>
               <i style={{fontSize: '200%', color: this.state.color}} className={this.state.likeClass}></i>
           </Button>
@@ -111,6 +105,20 @@ class FeedCard extends Component {
               <i style={{fontSize: '200%', color: 'black'}} className="far fa-comment"></i>
           </Button>
         </CardActions>
+          <CardContent>
+          <div style={{display: 'flex', alignItems:'left', flexDirection:'column'}}>
+              <div style={{display:'flex'}}>
+                <Avatar src="https://picsum.photos/50" />
+                <h5 style={{margin: '5px', color: 'black'}}>{this.props.name}</h5>
+              </div>
+              <a style={{color:'#a9a9a9'}} href="#">View all comments</a>
+              <div style={{display:'flex', alignItems:'baseline'}}>
+                <h6 style={{color:'black'}}>Sunny</h6><span style={{marginLeft:'6px'}}>Beautiful...</span>
+              </div>
+          </div>
+          <p>6 hours ago</p>
+          </CardContent>
+          <hr />
       </Card>
     )
   }
