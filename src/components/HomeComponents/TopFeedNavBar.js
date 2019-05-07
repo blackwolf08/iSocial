@@ -22,10 +22,13 @@ const styles ={
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
+        position: 'sticky',
+        top: 0,
         backgroundColor: '#fff',
         height: '50px',
         borderBottom: '1px solid #d2d2d2',
         padding: '10px',
-        paddingTop: '25px'
+        paddingTop: '25px',
+        zIndex: '99999'
     }
 }
