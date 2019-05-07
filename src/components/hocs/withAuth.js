@@ -5,12 +5,12 @@ export default function withAuth(ComponentToBeRendered) {
   class Authenticate extends Component {
     componentWillMount(){
       if(!this.props.isAuthenticated){
-        this.props.history.push("/signin");
+        this.props.history.push("/login");
       }
     }
     componentWillUpdate(nextProps){
       if(!nextProps.isAuthenticated){
-        this.props.history.push("/signin");
+        this.props.history.push("/login");
       }
     }
     render(){

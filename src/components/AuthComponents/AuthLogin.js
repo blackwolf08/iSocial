@@ -4,11 +4,20 @@ import BottomLoginBar from './BottomLoginBar'
 export default class AuthLogin extends Component {
 
     state ={
-        isDisabled : true
+        isDisabled : true,
+        email: '',
+        password: ''
     }
 
-    onSubmit = (e) => {
+    handleSubmit = (e) => {
         e.preventDefault();
+        const authType = this.props.signUp ? "signup" : "signin";
+        this.props.onAuth(authType, this.state).then(() => {
+        this.props.history.push("/feed");
+        })
+        .catch(() => {
+        return;
+        });
     }
 
     handleChange = (e) => {
@@ -16,7 +25,7 @@ export default class AuthLogin extends Component {
             [e.target.name]: e.target.value
         })
 
-        if(this.state.username && this.state.password)
+        if(this.state.email && this.state.password)
         {
             this.setState({
                 isDisabled: false
@@ -28,14 +37,14 @@ export default class AuthLogin extends Component {
     return (
       <div style={styles.root}>
         <h1 style={{color:'black'}} className="logo" >iSocial</h1>
-        <button type="button" style={styles.button} className="btn btn-primary"><i class="fab fa-facebook-square"></i> Continue with Facebook</button>
+        <button type="button" style={styles.button} className="btn btn-primary"><i className="fab fa-facebook-square"></i> Continue with Facebook</button>
         <div style={styles.or}>
             <hr style={styles.hr} />
             <span style={styles.orText}>OR</span>
             <hr style={styles.hr} />
         </div>
         <form style={styles.form} onSubmit={this.handleSubmit}>
-            <input value={this.state.username} onChange={this.handleChange} name="username" style={styles.input} type="text" placeholder="Phone number, username or email" />
+            <input value={this.state.email} onChange={this.handleChange} name="email" style={styles.input} type="text" placeholder="Email" />
             <input value={this.state.password} onChange={this.handleChange} name="password" style={styles.input} type="password" placeholder="Password" />
             <button disabled={this.state.isDisabled} type="submit" style={styles.button} className="btn btn-primary">Login</button>
         </form>
