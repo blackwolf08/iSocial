@@ -25,7 +25,8 @@ class FeedCard extends Component {
     state = {
       isClicked: false,
       likeClass: "far fa-heart",
-      color: 'black'
+      color: 'black',
+      show: false
     }
 
 
@@ -35,8 +36,14 @@ class FeedCard extends Component {
         this.setState({
           isClicked: !this.state.isClicked,
           likeClass: "fas fa-heart",
-          color: 'red'
+          color: 'red',
+          show: true
         })
+        setTimeout(()=>{
+          this.setState({
+            show: false
+          })
+        },1000)
       }
       else{
         this.setState({
@@ -53,8 +60,14 @@ class FeedCard extends Component {
         this.setState({
           isClicked: !this.state.isClicked,
           likeClass: "fas fa-heart",
-          color: 'red'
+          color: 'red',
+          show: true
         })
+        setTimeout(()=>{
+          this.setState({
+            show: false
+          })
+        },1000)
       }
       else{
         this.setState({
@@ -68,7 +81,7 @@ class FeedCard extends Component {
     const { classes }  = this.props;
     return (
         <Card className={classes.card}>
-        <CardActionArea  onDoubleClick={this.likedDbl}>
+        <CardActionArea disableRipple  onDoubleClick={this.likedDbl}>
           <CardMedia
             component="img"
             alt={this.props.name}
@@ -76,8 +89,13 @@ class FeedCard extends Component {
             height="140"
             image="http://lorempixel.com/600/400"
             title={this.props.title}
-            style={{backgroundPosition:'center center', backgroundSize:'cover', backgroundRepeat:'no-repeat', height:'300px'}}
+            style={{backgroundPosition:'center center', backgroundSize:'cover', backgroundRepeat:'no-repeat', height:'300px',position:'relative'}}
           />
+          {this.state.show &&(
+            <div className="animated heartBeat" style={{position: 'absolute', top:'90px',left:'120px', zIndex:'99999', fontSize:'400%', color:'#eee'}}>
+              <i className="animated heartBeat" style={{fontSize: '200%', color: '#eee'}} className="fas fa-heart"></i>
+            </div>
+          )}
           <CardContent  style={{height:'50px'}}>
           <div style={{display: 'flex', alignItems:'center'}}>
               <Avatar src="https://picsum.photos/50" />
